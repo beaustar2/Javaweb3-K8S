@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: javaweb3-k8s
+  name: javaweb3-k8s-replicaset
 spec:
   replicas: 2
   selector:
@@ -13,14 +13,16 @@ spec:
         app: javaweb3-k8s
     spec:
       containers:
-      - name: javaweb3-k8s
-        image: beautykemefa/javaweb3-K83:latest
+      - name: javaweb3-k8s-container
+        image: beautykemefa/javaweb3:latest
         ports:
         - containerPort: 8080
         resources:
           limits:
-            cpu: "0.5"  # Adjust as needed
+            cpu: "500m"  # Adjust as needed (500m is equivalent to 0.5)
             memory: "512Mi"  # Adjust as needed
           requests:
-            cpu: "0.2"  # Adjust as needed
+            cpu: "200m"  # Adjust as needed (200m is equivalent to 0.2)
             memory: "256Mi"  # Adjust as needed
+  imagePullSecrets:
+    - name: my-docker-registry-secret
