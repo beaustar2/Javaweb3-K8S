@@ -1,14 +1,11 @@
-FROM openjdk:11
+# Use an official OpenJDK runtime as a base image
+FROM openjdk:11-jre-slim
 
-WORKDIR /home/centos/Javaweb3-K8S
+# Set the working directory to /app
+WORKDIR /app
 
-# Copy the JAR file from the target directory
-COPY target/WebAppCal-0.0.6.war /home/centos/Javaweb3-K8S/app.jar
+# Copy the application WAR file into the container at /app
+COPY target/WebAppCal-0.0.6.war /app
 
-# Add the YAML configuration file
-ADD javaweb3-K8S.yaml app-config.yaml
-
-EXPOSE 8080
-
-# Set the entry point
-CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar", "server", "app-config.yaml"]
+# Specify the command to run your application
+CMD ["java", "-jar", "WebAppCal-0.0.6.war"]
