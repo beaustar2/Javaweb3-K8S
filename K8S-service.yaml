@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: javaweb3-k8s
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: javaweb3-k8s

@@ -16,7 +16,7 @@ spec:
       - name: javaweb3-k8s
         image: beautykemefa/javaweb3-K83:latest
         ports:
-        - containerPort: 8020
+        - containerPort: 8080
         resources:
           limits:
             cpu: "0.5"  # Adjust as needed
