@@ -1,4 +1,4 @@
-FROM openjdk:11.0.21
+FROM openjdk:11
 WORKDIR /home/centos/Javaweb3-K8S
 COPY target/WEB-INF/lib/servlet-api-2.5.jar /home/centos/Javaweb3-K8S
 ADD javaweb3-K8S.yaml app-config.yaml
