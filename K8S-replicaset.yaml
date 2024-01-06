@@ -12,6 +12,7 @@ spec:
       labels:
         app: javaweb3-k8s
     spec:
+      serviceAccountName: my-docker-registry-sa
       containers:
       - name: javaweb3-k8s-container
         image: beautykemefa/javaweb3:latest
@@ -24,5 +25,3 @@ spec:
           requests:
             cpu: "200m"  # Adjust as needed (200m is equivalent to 0.2)
             memory: "256Mi"  # Adjust as needed
-  imagePullSecrets:
-    - name: my-docker-registry-secret
