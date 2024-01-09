@@ -1,22 +1,22 @@
 apiVersion: v1
 kind: Deployment
 metadata:
-  name: k8s-javaweb3-deployment
+  name: javaweb3-k8s-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: k8s-javaweb3
+      app: javaweb3-k8s-nexus
   template:
     metadata:
       labels:
         app: javaweb3-k8s
     spec:
       containers:
-      - name: k8s-javaweb3-container
-        image: beautykemefa/javaweb3-k8s:latest
+      - name: nexus
+        image: binary-nexus
         ports:
-        - containerPort: 80
+        - containerPort: 8081
         resources:
           limits:
             cpu: "0.5"
@@ -27,6 +27,6 @@ spec:
         livenessProbe:
           httpGet:
             path: /healthcheck
-            port: 80
+            port: 8081
           initialDelaySeconds: 30
           timeoutSeconds: 2
