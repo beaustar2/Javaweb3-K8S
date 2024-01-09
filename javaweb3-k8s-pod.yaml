@@ -5,11 +5,13 @@ metadata:
 spec:
   containers:
   - name: apache-tomcat
-    image: apache-tomcat  # Replace with your actual image name
+    image: httpd
+    ports:
+    - containerPort: 8080
     resources:
-      requests:
-        cpu: "50m"
-        memory: "256Mi"
       limits:
-        cpu: "500m"
+        cpu: "0.5"
         memory: "512Mi"
+      requests:
+        cpu: "0.2"
+        memory: "256Mi"
