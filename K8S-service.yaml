@@ -11,35 +11,9 @@ spec:
     app: javaweb3-k8s
   ports:
   - protocol: TCP
-    port: 8030
+    port: 80
+    targetPort: 80
     name: http
 
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: javaweb3-k8s
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: javaweb3-k8s
-  template:
-    metadata:
-      labels:
-        app: javaweb3-k8s
-    spec:
-      containers:
-      - name: javaweb3-k8s-container
-        image: beautykemefa/javaweb3:latest
-        ports:
-        - containerPort: 8025
-        resources:
-          limits:
-            cpu: "0.5"  # Adjust as needed
-            memory: "512Mi"  # Adjust as needed
-          requests:
-            cpu: "0.2"  # Adjust as needed
-            memory: "256Mi"  # Adjust as needed
 
 
