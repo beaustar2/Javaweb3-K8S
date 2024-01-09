@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: apache-tomcat
-    image: httpd  
+    image: apache-tomcat  # Replace with your actual image name
     resources:
       requests:
         cpu: "50m"
