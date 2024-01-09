@@ -4,10 +4,10 @@ metadata:
   name: javaweb3-k8s-pod
 spec:
   containers:
-  - name: web
+  - name: apache-tomcat
     image: httpd
     ports:
-    - containerPort: 80
+    - containerPort: 8080
     resources:
       limits:
         cpu: "0.5"
