@@ -1,17 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: javaweb3-k8s-pod
+  name: javaweb-calculator
 spec:
   containers:
-  - name: apache-tomcat
-    image: httpd
+  - name: javaweb3
+    image: beautykemefa/javaweb-project:latest
     ports:
     - containerPort: 8080
-    resources:
-      limits:
-        cpu: "4"
-        memory: "512Mi"
-      requests:
-        cpu: "4"
-        memory: "256Mi"

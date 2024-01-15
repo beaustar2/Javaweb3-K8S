@@ -1,32 +1,22 @@
-apiVersion: v1
+---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: javaweb3-k8s-deployment
+  name: javaweb-calculator
+  labels:
+    app: javaweb-calculator
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: javaweb3-k8s-nexus
+      app: javaweb-calculator
   template:
     metadata:
       labels:
-        app: javaweb3-k8s
+        app: javaweb-calculator
     spec:
       containers:
-      - name: nexus
-        image: binary-nexus
+      - name: javaweb3
+        image: beautykemefa/javaweb-project:latest
         ports:
-        - containerPort: 8081
-        resources:
-          limits:
-            cpu: "0.5"
-            memory: "512Mi"
-          requests:
-            cpu: "0.2"
-            memory: "256Mi"
-        livenessProbe:
-          httpGet:
-            path: /healthcheck
-            port: 8081
-          initialDelaySeconds: 30
-          timeoutSeconds: 2
+        - containerPort: 8080

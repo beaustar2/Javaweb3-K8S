@@ -2,18 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: javaweb3-k8s-service
+  name: javaweb-calculator-service
   labels:
-    app: javaweb3-k8s
+    app: javaweb-calculator
 spec:
-  type: ClusterIP
   selector:
-    app: javaweb3-k8s
+    app: javaweb-calculator
   ports:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-    name: httpd
-
-
-
+  type: LoadBalancer

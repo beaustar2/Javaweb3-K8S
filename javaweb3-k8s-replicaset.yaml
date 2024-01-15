@@ -1,27 +1,23 @@
+---
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: javaweb3-k8s-replicaset
+  name: javaweb-calculator
+  labels:
+    app: javaweb-calculator
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: javaweb3-k8s
+      app: javaweb-calculator
   template:
     metadata:
       labels:
-        app: javaweb3-k8s
+        app: javaweb-calculator
     spec:
-      serviceAccountName: my-docker-registry-sa
       containers:
-      - name: javaweb3-k8s-container
-        image: beautykemefa/javaweb3:latest
+      - name: javaweb3
+        image: beautykemefa/javaweb-project:latest
         ports:
         - containerPort: 8080
-        resources:
-          limits:
-            cpu: "500m"  # Adjust as needed (500m is equivalent to 0.5)
-            memory: "512Mi"  # Adjust as needed
-          requests:
-            cpu: "200m"  # Adjust as needed (200m is equivalent to 0.2)
-            memory: "256Mi"  # Adjust as needed
+~
