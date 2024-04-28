@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: javaweb-calculator
 spec:
-  containers:
+containers:
   - name: javaweb3
     image: beautykemefa/javaweb-project:latest
     ports:

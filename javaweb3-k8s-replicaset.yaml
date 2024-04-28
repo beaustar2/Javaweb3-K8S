@@ -20,4 +20,3 @@ spec:
         image: beautykemefa/javaweb-project:latest
         ports:
         - containerPort: 8080
-~
